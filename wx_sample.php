@@ -10,13 +10,21 @@ class wechatCallbackapiTest
 {
 	public function valid()
     {
-        $echoStr = $_GET["echostr"];
-
-        //valid signature , option
-        if($this->checkSignature()){
-        	echo $echoStr;
-        	exit;
+        if(isset($_GET["echostr"]))
+        {
+            $echoStr = $_GET["echostr"];
+            file_put_contents("log.txt", $echoStr,FILE_APPEND);
+            //valid signature , option
+            if($this->checkSignature()){
+                echo $echoStr;
+                file_put_contents("log.txt", "validation passed",FILE_APPEND);
+                exit;
+            }
         }
+        else{
+            file_put_contents("log.txt", "echostr is not set",FILE_APPEND);
+        }
+
     }
 
     public function responseMsg()
@@ -47,8 +55,8 @@ class wechatCallbackapiTest
               		$msgType = "text";
                 	$contentStr = "Welcome to wechat world!";
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-					$file  = 'log.txt';
-					file_put_contents($file, $resultStr,FILE_APPEND);
+
+					file_put_contents("log.txt", $resultStr,FILE_APPEND);
                 	echo $resultStr;
                 }else{
                 	echo "Input something...";
