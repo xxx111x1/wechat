@@ -5,6 +5,7 @@
  * Date: 2015/10/21
  * Time: 21:33
  */
+//force touch
 include "wx_sample.php";
 $wechatObj = new wechatCallbackapiTest();
 if (isset($_GET['echostr'])) {
