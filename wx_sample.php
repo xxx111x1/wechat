@@ -53,7 +53,7 @@ class wechatCallbackapiTest
 				if(!empty( $keyword ))
                 {
               		$msgType = "text";
-                	$contentStr = "Welcome to usays! You will have fun food here!";
+                	$contentStr = "Hello ".$fromUsername.", Welcome to usays! You will have fun food here!";
                 	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 
 					file_put_contents("log.txt", $resultStr,FILE_APPEND);
