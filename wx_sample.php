@@ -13,16 +13,16 @@ class wechatCallbackapiTest
         if(isset($_GET["echostr"]))
         {
             $echoStr = $_GET["echostr"];
-            file_put_contents("log.txt", $echoStr,FILE_APPEND);
+            file_put_contents("/var/www/html/wechat/log.txt", $echoStr,FILE_APPEND);
             //valid signature , option
             if($this->checkSignature()){
                 echo $echoStr;
-                file_put_contents("log.txt", "validation passed",FILE_APPEND);
+                file_put_contents("/var/www/html/wechat/log.txt", "validation passed",FILE_APPEND);
                 exit;
             }
         }
         else{
-            file_put_contents("log.txt", "echostr is not set",FILE_APPEND);
+            file_put_contents("/var/www/html/wechat/log.txt", "echostr is not set",FILE_APPEND);
         }
 
     }
