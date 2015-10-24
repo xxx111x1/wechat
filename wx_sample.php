@@ -62,7 +62,8 @@ class wechatCallbackapiTest
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 
                         file_put_contents("log.txt", $resultStr,FILE_APPEND);
-                        echo $resultStr;
+                        //echo $resultStr;
+                        echo 'http://128.199.199.160/wechat/getcodeurl.php';
                     }
 
                 }else{
