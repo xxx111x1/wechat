@@ -54,7 +54,7 @@ class wechatCallbackapiTest
                 {
                     if($keyword=='openid')
                     {
-                        echo 'http://128.199.199.160/wechat/getcodeurl.php';
+                        echo 'http://www.usays.ca/wechat/getcodeurl.php';
                     }
                     else{
                         $msgType = "text";
@@ -63,7 +63,7 @@ class wechatCallbackapiTest
 
                         file_put_contents("log.txt", $resultStr,FILE_APPEND);
                         //echo $resultStr;
-                        echo 'http://128.199.199.160/wechat/getcodeurl.php';
+                        echo 'http://www.usays.ca/wechat/getcodeurl.php';
                     }
 
                 }else{
