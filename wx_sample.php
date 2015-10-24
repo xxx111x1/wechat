@@ -52,12 +52,19 @@ class wechatCallbackapiTest
 							</xml>";             
 				if(!empty( $keyword ))
                 {
-              		$msgType = "text";
-                	$contentStr = "Hello ".$toUsername.", Welcome to usays! You will have fun food here! Your message is ".$keyword;
-                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                    if($keyword=='openid')
+                    {
+                        echo 'http://128.199.199.160/wechat/getcodeurl.php';
+                    }
+                    else{
+                        $msgType = "text";
+                        $contentStr = "Hello ".$toUsername.", Welcome to usays! You will have fun food here! Your message is ".$keyword;
+                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 
-					file_put_contents("log.txt", $resultStr,FILE_APPEND);
-                	echo $resultStr;
+                        file_put_contents("log.txt", $resultStr,FILE_APPEND);
+                        echo $resultStr;
+                    }
+
                 }else{
                 	echo "Input something...";
                 }
