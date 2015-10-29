@@ -58,12 +58,12 @@ class wechatCallbackapiTest
                     }
                     else{
                         $msgType = "text";
-                        $contentStr = "Hello ".$toUsername.", Welcome to usays! You will have fun food here! Your message is ".$keyword;
+                        $contentStr = "收到消息:  ".$keyword;
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 
-                        file_put_contents("log.txt", $resultStr,FILE_APPEND);
-                        //echo $resultStr;
-                        echo 'http://www.usays.ca/wechat/getcodeurl.php';
+                        file_put_contents("./log.txt", $resultStr,FILE_APPEND);
+                        echo $resultStr;
+                        //echo 'http://www.usays.ca/wechat/getcodeurl.php';
                     }
 
                 }else{
