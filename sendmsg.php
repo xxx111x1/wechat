@@ -8,8 +8,9 @@
 if(isset($_GET['msg']))
 {
     $acc_token = refresh_access_token();
-    sendmsg('omiagw6HuwXD95DmvmpY27rs1y1c',$_GET['msg'],$acc_token);
-    sendmsg('omiagwzBMqBnpGLL5o6qAhUNOZlg',$_GET['msg'],$acc_token);
+    $msg = urldecode($_GET['msg']);
+    sendmsg('omiagw6HuwXD95DmvmpY27rs1y1c',$msg,$acc_token);
+    sendmsg('omiagwzBMqBnpGLL5o6qAhUNOZlg',$msg,$acc_token);
 }
 
 function refresh_access_token()
