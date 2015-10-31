@@ -1,4 +1,4 @@
-?<?php
+<?php
 /**
   * wechat php test
   */
@@ -59,8 +59,9 @@ class wechatCallbackapiTest
                     else{
                         $msgType = "text";
                         //start to process message
-                        $contentStr = file_get_contents("http://localhost:8080/index.php?route=wechat/msghandler&from=".urlencode($fromUsername)."&msg=".urlencode($keyword));
-                        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                        $contentStr = file_get_contents("http://www.u-says.com/index.php?route=wechat/msghandler&from=".urlencode($fromUsername)."&msg=".urlencode($keyword));
+                        //$contentStr="hello";
+			$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                         echo $resultStr;
                     }
 
