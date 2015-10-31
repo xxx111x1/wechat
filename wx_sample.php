@@ -1,4 +1,4 @@
-<?php
+?<?php
 /**
   * wechat php test
   */
@@ -54,16 +54,14 @@ class wechatCallbackapiTest
                 {
                     if($keyword=='openid')
                     {
-                        echo 'http://www.usays.ca/wechat/getcodeurl.php';
+                        echo 'http://www.u-says.com/wechat/getcodeurl.php';
                     }
                     else{
                         $msgType = "text";
-                        $contentStr = "收到消息:  ".$keyword;
+                        //start to process message
+                        $contentStr = file_get_contents("http://localhost:8080/index.php?route=wechat/msghandler&from=".urlencode($fromUsername)."&msg=".urlencode($keyword));
                         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-
-                        file_put_contents("./log.txt", $resultStr,FILE_APPEND);
                         echo $resultStr;
-                        //echo 'http://www.usays.ca/wechat/getcodeurl.php';
                     }
 
                 }else{
